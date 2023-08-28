@@ -1,4 +1,4 @@
-# carbon_footprint
+# Carbon Footprint
 
 A new Flutter project.
 
