@@ -1,40 +1,62 @@
 import 'package:flutter/material.dart';
+import 'package:pie_chart/pie_chart.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+   HomePage({super.key});
+
+  final dataMap = <String, double>{
+    "Transport": 5,
+    "Electricity Consumption":5,
+    "Food":5
+  };
+
+  final colorList = <Color>[
+    Colors.greenAccent,
+    Colors.blueAccent,
+    Colors.redAccent,
+  ];
+
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
+      appBar: AppBar(
+        ),
 
       body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 40),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.blue
-                ),
-                child: Text(
-                  "Hi User",
-                  style: TextStyle(fontSize: 32, color: Colors.red,),
-                ),
-              ),      
-            ),
-
-            Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: MaterialButton(
-                  onPressed: () => {},
-                  child: Text('Start Test'),
-                ),
-              ),
-            ),
-          ],
-        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
         
+              SizedBox(height: 20,),
+        
+               PieChart(
+                chartRadius: 250,
+                centerText: "Total Co2 per year",
+                dataMap: dataMap,
+                chartType: ChartType.ring,
+                baseChartColor: Colors.grey[50]!.withOpacity(0.15),
+                colorList: colorList,
+                legendOptions: const LegendOptions(
+                    showLegendsInRow: true,
+                    legendPosition: LegendPosition.bottom,
+                    showLegends: true,
+                    legendShape: BoxShape.circle,
+                    legendTextStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                chartValuesOptions: const ChartValuesOptions(
+                  showChartValuesInPercentage: true,
+                ),
+                totalValue: 15,
+              ),
+        
+        
+            ],
+          ),
+        )
       ),
     );
   }

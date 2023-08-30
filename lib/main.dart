@@ -1,4 +1,7 @@
+import 'package:carbon_footprint/pages/get_started.dart';
 import 'package:carbon_footprint/pages/home.dart';
+import 'package:carbon_footprint/utils/routes.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,7 +28,8 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",                              //this route will open first
       
       routes: {                                       //creating routes for different pages in app
-        "/": (context) => HomePage(),                //main root       
+        "/": (context) => GetStarted(),                //main root 
+        Myroutes.homeRoute: (context) => HomePage(),      
       },
     );   
   }
