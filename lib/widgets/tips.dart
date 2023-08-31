@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class TipsCont extends StatelessWidget {
   final String text;
   final int col_index;
@@ -10,8 +11,8 @@ class TipsCont extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
-      width: 140,
+      height: 120,
+      width: 120,
       decoration: BoxDecoration(
         color: colors[col_index],
         borderRadius: BorderRadius.circular(20)

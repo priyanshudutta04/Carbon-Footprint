@@ -1,6 +1,7 @@
 import 'package:carbon_footprint/widgets/tips.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatelessWidget {
    HomePage({super.key});
@@ -33,7 +34,7 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
           
-                SizedBox(height: 20,),
+                SizedBox(height: 10,),
           
                  PieChart(
                   chartRadius: 250,
@@ -81,9 +82,52 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
                       ],
-                    ),
-                  
+                    ),     
                 ),
+
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
+                  child: Container(
+                    height: 100,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: context.cardColor
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          // ignore: sort_child_properties_last
+                          child: Center(
+                            child: Image.asset(
+                              "assets/images/tea-leaves.png",
+                              height: 50,
+                              width: 50,
+                            ),
+                          ),
+                          height: 100,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: context.cardColor
+                          ),
+                        ),
+                        const SizedBox(width: 10,),
+                        const Expanded(
+                          child: Center(                
+                            child: Text(
+                              "Learn More About Climate Change",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                              ),
+                            ),              
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
           
           
               ],
