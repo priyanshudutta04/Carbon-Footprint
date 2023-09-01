@@ -1,6 +1,7 @@
 import 'package:carbon_footprint/pages/food_carbon.dart';
 import 'package:carbon_footprint/pages/get_started.dart';
 import 'package:carbon_footprint/pages/home.dart';
+import 'package:carbon_footprint/pages/transport.dart';
 import 'package:carbon_footprint/utils/routes.dart';
 import 'package:carbon_footprint/utils/themes.dart';
 
@@ -44,7 +45,8 @@ class _MyAppState extends State<MyApp> {
       routes: {                                       //creating routes for different pages in app
         "/": (context) => GetStarted(),                //main root 
         Myroutes.homeRoute: (context) => HomePage(),
-        Myroutes.foodCarbonRoute: (context) => FoodCarbon(),      
+        Myroutes.foodCarbonRoute: (context) => FoodCarbon(),
+        Myroutes.transportCarbonRoute: (context) => TransportCarbon(),    
       },
     );   
   }

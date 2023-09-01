@@ -1,6 +1,5 @@
 import 'package:carbon_footprint/widgets/next_buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({super.key});
