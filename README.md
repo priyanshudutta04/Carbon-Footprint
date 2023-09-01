@@ -1,6 +1,6 @@
 # Carbon Footprint
 
-A new Flutter project.
+An application to track individual's carbon footprint.
 
 ## Getting Started
 
