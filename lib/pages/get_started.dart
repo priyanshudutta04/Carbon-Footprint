@@ -1,3 +1,4 @@
+import 'package:carbon_footprint/widgets/next_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -52,25 +53,9 @@ class GetStarted extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 20),
                     child: GestureDetector(
                       onTap: () => {
-                        Navigator.pushNamed(context, '/home')
+                        Navigator.pushNamed(context, '/foodCarbon')
                       },
-                      child: Container(
-                        height: 60,
-                          width: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: context.cardColor
-                          ),
-                        child: Center(
-                          child: Text(
-                            'Start Test',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16
-                            ),
-                          ),
-                        ),
-                      ),
+                      child: NextButton(text: "Get Started")
                     ),
                   ),
                 ),

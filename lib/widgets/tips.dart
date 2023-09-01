@@ -25,7 +25,7 @@ class TipsCont extends StatelessWidget {
             
             SizedBox(height: 20,),
             Text(
-              "$text",
+              text,
               style: TextStyle(fontSize: 12),
             ),
           ],
