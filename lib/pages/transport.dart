@@ -12,14 +12,16 @@ class TransportCarbon extends StatefulWidget {
 class _TransportCarbonState extends State<TransportCarbon> {
 
   String food="";
-  int selectedPayment=1;
-   TextEditingController controller=TextEditingController();
+  int vehicleSelect=-1;
+  TextEditingController controller=TextEditingController();
+  double current_value=0;
+  String val="0";
 
-  Widget CustomPaymentCardButton(String assetName, int index) {
+  Widget VehicleButton(String assetName, int index) {
     return OutlinedButton(
       onPressed: () {
         setState(() {
-          selectedPayment = index;
+          vehicleSelect = index;
         });
       },
       style: OutlinedButton.styleFrom(
@@ -27,8 +29,8 @@ class _TransportCarbonState extends State<TransportCarbon> {
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         side: BorderSide(
-            width: (selectedPayment == index) ? 3.0 : 0.5,
-            color: (selectedPayment == index)
+            width: (vehicleSelect == index) ? 3.0 : 0.5,
+            color: (vehicleSelect == index)
                 ? Colors.green
                 : Colors.transparent),
       ),
@@ -42,7 +44,7 @@ class _TransportCarbonState extends State<TransportCarbon> {
               height: 120,
             ),
           ),
-          /*if (selectedPayment == index)
+          /*if (vehicleSelect == index)
             Positioned(
               top: 5,
               right: 5,
@@ -100,102 +102,95 @@ class _TransportCarbonState extends State<TransportCarbon> {
                     ),
                   ),
 
-                  const SizedBox(height: 20,),
-                  const Padding(
-                  
-                    padding: EdgeInsets.only(top: 40,left: 30,right: 30),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Hours Spend Weekly",
-                          style: TextStyle(
-                            fontSize: 20
-                          ),
-                        ),
-                        const SizedBox(width: 10,),
-                        Expanded(
-                          child: TextField(
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              labelText: 'Password',
-                            ),
-                          ),
-                        )
-                      ],
-                      
-                    ),
+                 Padding(
+                   padding: EdgeInsets.only(top: 30,left: 30,right: 30),
+                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 80,
+                        child: VehicleButton("assets/images/car.png", 0),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: 80,
+                        height: 80,
+                        child: VehicleButton("assets/images/motorcycle.png", 1),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: 80,
+                        height: 80,
+                        child: VehicleButton("assets/images/bus.png", 2),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                    ],
+                   ),
+                 ),
+
+                 Padding(
+                   padding: EdgeInsets.only(top: 30,left: 30,right: 30),
+                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 80,
+                        child: VehicleButton("assets/images/train.png", 3),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: 80,
+                        height: 80,
+                        child: VehicleButton("assets/images/cycling.png", 4),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        width: 80,
+                        height: 80,
+                        child: VehicleButton("assets/images/walk.png", 5),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                    ],
+                   ),
+                 ),
+
+                Padding(
+                  padding: EdgeInsets.only(top: 40,left: 30,right: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text("$val hr",style: TextStyle(fontSize: 18),),
+                      SizedBox(width: 10,),
+                      Slider(
+                        min: 0,
+                        max: 100,
+                        divisions: 100,
+                        value: current_value, 
+                        onChanged: (value){
+                          setState(() {
+                            current_value=value;
+                            val=current_value.round().toString();
+                          });
+                        }
+                      ),
+                    ],
                   ),
-
-
-                 Padding(
-                   padding: EdgeInsets.only(top: 30,left: 30,right: 30),
-                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        width: 80,
-                        height: 80,
-                        child: CustomPaymentCardButton("assets/images/car.png", 0),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: 80,
-                        height: 80,
-                        child: CustomPaymentCardButton("assets/images/motorcycle.png", 1),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: 80,
-                        height: 80,
-                        child: CustomPaymentCardButton("assets/images/bus.png", 2),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                    ],
-                   ),
-                 ),
-                 Padding(
-                   padding: EdgeInsets.only(top: 30,left: 30,right: 30),
-                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        width: 80,
-                        height: 80,
-                        child: CustomPaymentCardButton("assets/images/train.png", 3),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: 80,
-                        height: 80,
-                        child: CustomPaymentCardButton("assets/images/cycling.png", 4),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Container(
-                        width: 80,
-                        height: 80,
-                        child: CustomPaymentCardButton("assets/images/walk.png", 5),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                    ],
-                   ),
-                 ),
-
+                ),
                  
-                 
-
                   Expanded(
                     child: Align(
                       alignment: Alignment.bottomCenter,
