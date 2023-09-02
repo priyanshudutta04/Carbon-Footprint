@@ -13,7 +13,7 @@ class _TransportCarbonState extends State<TransportCarbon> {
 
   String food="";
   int vehicleSelect=-1;
-  TextEditingController controller=TextEditingController();
+  
   double current_value=0;
   String val="0";
 
@@ -85,7 +85,7 @@ class _TransportCarbonState extends State<TransportCarbon> {
                   const Padding(
                     padding: EdgeInsets.only(top: 30,left: 20),
                     child: Text(
-                      "Transport Carbon",
+                      "Transportation",
                       style: TextStyle(
                         fontSize: 28
                       ),
@@ -198,7 +198,7 @@ class _TransportCarbonState extends State<TransportCarbon> {
                         padding: const EdgeInsets.only(bottom: 20),
                         child: GestureDetector(
                           onTap: () => {
-                            Navigator.pushNamed(context, '/foodCarbon')
+                            Navigator.pushNamed(context, '/airCarbon')
                           },
                           child: NextButton(text: "Next")
                         ),

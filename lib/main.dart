@@ -1,3 +1,4 @@
+import 'package:carbon_footprint/pages/air_travel.dart';
 import 'package:carbon_footprint/pages/food_carbon.dart';
 import 'package:carbon_footprint/pages/get_started.dart';
 import 'package:carbon_footprint/pages/home.dart';
@@ -46,7 +47,8 @@ class _MyAppState extends State<MyApp> {
         "/": (context) => GetStarted(),                //main root 
         Myroutes.homeRoute: (context) => HomePage(),
         Myroutes.foodCarbonRoute: (context) => FoodCarbon(),
-        Myroutes.transportCarbonRoute: (context) => TransportCarbon(),    
+        Myroutes.transportCarbonRoute: (context) => TransportCarbon(),  
+        Myroutes.airCarbonRoute: (context) => AirTravel(),  
       },
     );   
   }
