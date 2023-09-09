@@ -2,14 +2,19 @@ import 'package:carbon_footprint/widgets/next_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class AirTravel extends StatefulWidget {
-  const AirTravel({super.key});
+class ElectricBill extends StatefulWidget {
+  const ElectricBill({super.key});
 
   @override
-  State<AirTravel> createState() => _AirTravelState();
+  State<ElectricBill> createState() => _ElectricBillState();
 }
 
-class _AirTravelState extends State<AirTravel> {
+class _ElectricBillState extends State<ElectricBill> {
+
+  
+
+  double current_value=1;
+  String val="1";
 
   TextEditingController controller=TextEditingController();
   @override
@@ -36,23 +41,10 @@ class _AirTravelState extends State<AirTravel> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
 
-                  Container(
-                    height: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: context.cardColor,
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/plane-banner.jpg"),
-                        fit: BoxFit.cover
-                      ),
-                    ),
-
-                  ),
-
                   const Padding(
                     padding: EdgeInsets.only(top: 30,left: 20),
                     child: Text(
-                      "Air Travel",
+                      "Energy Consumed",
                       style: TextStyle(
                         fontSize: 28
                       ),
@@ -62,7 +54,7 @@ class _AirTravelState extends State<AirTravel> {
                   const Padding(
                     padding: EdgeInsets.only(top: 30,left: 20,right: 20),
                     child: Text(
-                      "Select the amount of hours spent monthly on air travel",
+                      "Enter the averrage monthly electricity consumed in terms of kWh",
                       style: TextStyle(
                         fontSize: 16
                       ),
@@ -70,16 +62,18 @@ class _AirTravelState extends State<AirTravel> {
                   ),
 
                 Padding(
-                  padding: EdgeInsets.only(top: 30,left: 20,right: 20,bottom: 50),
+                  padding: EdgeInsets.only(top: 40,left: 20,right: 20,bottom: 30),
                   child: Row(
                     children:[  
                       
-                      Text("Enter Total Hours",style: TextStyle(fontSize: 18),) ,     
+                      Text("Enter Total Units",style: TextStyle(fontSize: 18),) ,     
                       SizedBox(width: 40,),           
                       Flexible(
                         child: SizedBox(
                           width: 100,
+                          height: 55,
                           child: TextField(
+                            
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 18,
@@ -103,7 +97,7 @@ class _AirTravelState extends State<AirTravel> {
                                   width: 4.0,
                                 ),
                               ),
-                              hintText: 'hours',
+                              hintText: 'kWh',
                             ),    
                             controller: controller
                           ),
@@ -111,6 +105,34 @@ class _AirTravelState extends State<AirTravel> {
                       ),
                           
                     ]              
+                  ),
+                ),
+
+                Padding(
+                  padding: EdgeInsets.only(top: 20,left: 10,right: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+
+                      Padding(
+                        padding: EdgeInsets.only(left: 20,right: 20),
+                        child: Text("Total person living in house: $val ",style: TextStyle(fontSize: 18),),
+                      ),
+                      SizedBox(height: 10,),
+                     
+                      Slider(
+                        min: 1,
+                        max: 10,
+                        divisions: 9,
+                        value: current_value, 
+                        onChanged: (value){
+                          setState(() {
+                            current_value=value;
+                            val=current_value.round().toString();
+                          });
+                        }
+                      ),
+                    ],
                   ),
                 ),
                  
@@ -121,7 +143,7 @@ class _AirTravelState extends State<AirTravel> {
                         padding: const EdgeInsets.only(bottom: 20),
                         child: GestureDetector(
                           onTap: () => {
-                            Navigator.pushNamed(context, '/electricBill')
+                            Navigator.pushNamed(context, '/home')
                           },
                           child: NextButton(text: "Next")
                         ),
