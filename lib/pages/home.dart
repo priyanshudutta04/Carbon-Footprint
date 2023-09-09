@@ -1,3 +1,4 @@
+import 'package:carbon_footprint/widgets/drawer.dart';
 import 'package:carbon_footprint/widgets/tips.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
@@ -22,10 +23,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(243,229,245, 1),
+      backgroundColor: context.canvasColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
+      drawer: AppDrawer(//creates menu button
+      ),
+
 
       body: SingleChildScrollView(
         child: SafeArea(
@@ -35,28 +39,42 @@ class HomePage extends StatelessWidget {
               children: [
           
                 SizedBox(height: 10,),
-          
-                 PieChart(
-                  chartRadius: 250,
-                  centerText: "Total Co2 per year",
-                  dataMap: dataMap,
-                  chartType: ChartType.ring,
-                  baseChartColor: Colors.grey[50]!.withOpacity(0.15),
-                  colorList: colorList,
-                  legendOptions: const LegendOptions(
-                      showLegendsInRow: true,
-                      legendPosition: LegendPosition.bottom,
-                      showLegends: true,
-                      legendShape: BoxShape.circle,
-                      legendTextStyle: TextStyle(
-                        fontWeight: FontWeight.bold,
+
+                     PieChart(
+                      chartRadius: 250,
+                      centerText:  "498 kg co2e",
+                      centerTextStyle: TextStyle(
+                        fontSize: 24,
+                        color: Colors.black
                       ),
+                      dataMap: dataMap,
+                      chartType: ChartType.ring,
+                      baseChartColor: Colors.grey[50]!.withOpacity(0.15),
+                      colorList: colorList,
+                      legendOptions: const LegendOptions(
+                          showLegendsInRow: true,
+                          legendPosition: LegendPosition.bottom,
+                          showLegends: true,
+                          legendShape: BoxShape.circle,
+                          legendTextStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      chartValuesOptions:  ChartValuesOptions(
+                        showChartValuesInPercentage: true,
+                        chartValueStyle: TextStyle(
+                          fontSize: 10,
+                          color: Colors.black
+                        ),
+                        chartValueBackgroundColor: context.canvasColor
+                      ),
+                      totalValue: 15,
                     ),
-                  chartValuesOptions: const ChartValuesOptions(
-                    showChartValuesInPercentage: true,
-                  ),
-                  totalValue: 15,
-                ),
+                    
+                   
+                   
+                   
+             
 
                 SizedBox(height: 20,),
                 Padding(
