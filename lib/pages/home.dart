@@ -37,46 +37,62 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-          
-                SizedBox(height: 10,),
-
-                     PieChart(
-                      chartRadius: 250,
-                      centerText:  "498 kg co2e",
-                      centerTextStyle: TextStyle(
-                        fontSize: 24,
-                        color: Colors.black
-                      ),
-                      dataMap: dataMap,
-                      chartType: ChartType.ring,
-                      baseChartColor: Colors.grey[50]!.withOpacity(0.15),
-                      colorList: colorList,
-                      legendOptions: const LegendOptions(
-                          showLegendsInRow: true,
-                          legendPosition: LegendPosition.bottom,
-                          showLegends: true,
-                          legendShape: BoxShape.circle,
-                          legendTextStyle: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      chartValuesOptions:  ChartValuesOptions(
-                        showChartValuesInPercentage: true,
-                        chartValueStyle: TextStyle(
-                          fontSize: 10,
-                          color: Colors.black
-                        ),
-                        chartValueBackgroundColor: context.canvasColor
-                      ),
-                      totalValue: 15,
-                    ),
-                    
-                   
-                   
-                   
-             
+      
+                Center(
+                  child: Text(
+                    "Annual Carbon Footprint",
+                    style: TextStyle(fontSize: 18),
+                  )
+                ),
 
                 SizedBox(height: 20,),
+
+                PieChart(
+                chartRadius: 250,
+                centerText:  "498 kg co2e",
+                centerTextStyle: TextStyle(
+                  fontSize: 24,
+                  color: Colors.black
+                ),
+                dataMap: dataMap,
+                chartType: ChartType.ring,
+                baseChartColor: Colors.grey[50]!.withOpacity(0.15),
+                colorList: colorList,
+                legendOptions: const LegendOptions(
+                    showLegendsInRow: true,
+                    legendPosition: LegendPosition.bottom,
+                    showLegends: true,
+                    legendShape: BoxShape.circle,
+                    legendTextStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                chartValuesOptions:  ChartValuesOptions(
+                  showChartValuesInPercentage: true,
+                  chartValueStyle: TextStyle(
+                    fontSize: 10,
+                    color: Colors.black
+                  ),
+                  chartValueBackgroundColor: context.canvasColor
+                ),
+                totalValue: 15,
+              ),
+
+
+               SizedBox(height: 20,),
+
+
+              Center(
+                  child: Text(
+                    "42% higher than an average indian",
+                    style: TextStyle(fontSize: 18),
+                  )
+                ),
+
+
+
+                SizedBox(height: 20,),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   
@@ -106,7 +122,7 @@ class HomePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
                   child: Container(
-                    height: 100,
+                    height: 80,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
@@ -145,7 +161,9 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                   ),
-                )
+                ),
+
+                SizedBox(height: 30,),
           
           
               ],
