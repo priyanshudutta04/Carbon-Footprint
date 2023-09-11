@@ -2,6 +2,7 @@
 //ignore_for_file: prefer_const_literals
 import 'dart:io';
 
+import 'package:carbon_footprint/pages/get_started.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
@@ -50,19 +51,29 @@ class _AppDrawerState extends State<AppDrawer> {
             title: Text("User",style: TextStyle(color: const Color.fromARGB(255, 226, 54, 54),fontSize: 24),),
             ),
             SizedBox(height: 30,),
-            ListTile(
-              onTap: () async {
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                    builder: (context) => new GetStarted(),
+                  ),
+                );
               },
-              //5th Title
-              leading: Icon(
-                CupertinoIcons.restart,
-                color: context.cardColor,
+
+              child: ListTile(
                 
-              ),
-              title: Text(
-                "Retake Test",
-                style:
-                    TextStyle(color: context.theme.primaryColor, fontSize: 18),
+                //5th Title
+                leading: Icon(
+                  CupertinoIcons.restart,
+                  color: context.cardColor,
+                  
+                ),
+                title: Text(
+                  "Retake Test",
+                  style:
+                      TextStyle(color: context.theme.primaryColor, fontSize: 18),
+                ),
               ),
             ),
             ListTile(
