@@ -19,14 +19,30 @@ class _ElectricBillState extends State<ElectricBill> {
 
   double current_value=1;
   String val="1";
-  bool testake=true;
+  bool testake=false;
   TextEditingController controller=TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
+  @override
+  void initState() {
+    if (startbox.get("START") == null) {
+      db.createTheme();
+      testake = db.startHome;
+    }
+    else{
+      db.loadTheme();
+      testake=db.startHome;
+    }
+    
+    // TODO: implement initState
+    super.initState();
+  }
+
+
   _saveform(){
     setState(() {
-      db.startHome = testake;
+      db.startHome = !db.startHome;
     });
 
     var form = formKey.currentState!;

@@ -19,6 +19,7 @@ class _AuthenticateState extends State<Authenticate> {
   StartPointer db = StartPointer();
 
   bool testake=false;
+  bool tt=false;
 
   @override
   void initState() {
@@ -37,11 +38,12 @@ class _AuthenticateState extends State<Authenticate> {
 
   @override
   Widget build(BuildContext context) {
-    if(testake=true){
+    if(testake==true){
       return  HomePage();
     }
-    else{
+    else if(testake==false){
       return  GetStarted();
     }
+    return Scaffold();
   }
 }
