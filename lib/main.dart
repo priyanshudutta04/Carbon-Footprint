@@ -4,13 +4,19 @@ import 'package:carbon_footprint/pages/food_carbon.dart';
 import 'package:carbon_footprint/pages/get_started.dart';
 import 'package:carbon_footprint/pages/home.dart';
 import 'package:carbon_footprint/pages/transport.dart';
+import 'package:carbon_footprint/utils/authenticate.dart';
 import 'package:carbon_footprint/utils/routes.dart';
 import 'package:carbon_footprint/utils/themes.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async{
+  
+  await Hive.initFlutter();
+  await Hive.openBox("Start_db");
+  var startbox = await Hive.openBox("Start_db");
   runApp( MyApp());
 }
 
@@ -45,8 +51,8 @@ class _MyAppState extends State<MyApp> {
       initialRoute: "/",                              //this route will open first
       
       routes: {                                       //creating routes for different pages in app
-        //"/": (context) => GetStarted(),                //main root 
-        "/": (context) => HomePage(),                //main root 
+        "/": (context) => Authenticate(),                //main root 
+        Myroutes.getStartedRoute: (context) => GetStarted(),
         Myroutes.homeRoute: (context) => HomePage(),
         Myroutes.foodCarbonRoute: (context) => FoodCarbon(),
         Myroutes.transportCarbonRoute: (context) => TransportCarbon(),  

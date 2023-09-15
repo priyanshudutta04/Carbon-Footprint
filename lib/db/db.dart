@@ -1,9 +1,6 @@
 import 'package:hive/hive.dart';
 
 
-
-
-
 class StartPointer{
 
   bool startHome=false;
